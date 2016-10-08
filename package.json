@@ -1,0 +1,39 @@
+{
+  "name": "restful-lenny",
+  "version": "4.2.0",
+  "description": "Provides some much needed dongage to your day to day activities",
+  "main": "app.js",
+  "dependencies": {
+    "restify": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casper-oakley/RESTful-lenny.git"
+  },
+  "keywords": [
+    "lenny",
+    "raise",
+    "your",
+    "dongers",
+    "meem",
+    "420",
+    "530",
+    "face",
+    "mee-mee",
+    "lennyface",
+    "faceoflenage",
+    "api",
+    "asaservice",
+    "asadong"
+  ],
+  "author": "ur mum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/casper-oakley/RESTful-lenny/issues"
+  },
+  "homepage": "https://github.com/casper-oakley/RESTful-lenny#readme"
+}
