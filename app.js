@@ -19,23 +19,61 @@ server.get('/api/v1/random', function(req, res, next) {
     var ear = getRandom(lenny.ears),
         eye = getRandom(lenny.eyes),
       mouth = getRandom(lenny.mouths);
-  
-    var lefteye, righteye, leftear, rightear;
-  
+ 
+	
+	var lennyface = {	
+		lefteye: " ͡°",	
+		righteye: " ͡°",
+		leftear: "(",
+		rightear: ")",
+		mouth: " ͜ʖ"
+	};		
+
     if(ear.length == 1) {
-      leftear = ear[0], rightear = ear[0];
+     lennyface.leftear = ear[0], lennyface.rightear = ear[0];
     } else {
-      leftear = ear[0], rightear = ear[1];
+     lennyface.leftear = ear[0], lennyface.rightear = ear[1];
     }
 
     if(eye.length == 1) {
-      lefteye = eye[0], righteye = eye[0];
+       lennyface.lefteye = eye[0], lennyface.righteye = eye[0];
     } else {
-      lefteye = eye[0], righteye = eye[1];
+      lennyface.lefteye = eye[0], lennyface.righteye = eye[1];
     }
 
+
+	if(req.query.lefteye){
+		lennyface.lefteye = req.query.lefteye;
+	}
+	
+	if(req.query.righteye){
+		lennyface.righteye = req.query.righteye;
+	}
+	
+	if(req.query.leftear){
+		lennyface.leftear = req.query.leftear;
+	}
+	
+	if(req.query.rightear){
+		lennyface.rightear = req.query.rightear;
+	}
+	
+	if(req.query.mouth){
+		lennyface.mouth = req.query.mouth;
+	}
+	
+	if(req.query.eyes){
+		lennyface.lefteye = req.query.eyes;
+		lennyface.righteye = req.query.eyes;
+	}
+	
+	if(req.query.ears){
+		lennyface.leftear = req.query.ears;
+		lennyface.rightear = req.query.ears;
+	}	
+
     var resp = {
-      face: leftear + lefteye + mouth + righteye + rightear
+      face: lennyface.leftear + lennyface.lefteye + lennyface.mouth + lennyface.righteye + lennyface.rightear
     };
     lennies.push(resp);
   }
@@ -50,10 +88,45 @@ function getRandom(arr) {
 
 server.get('/api/v1/lenny', function(req, res, next)
 {
-	console.log("Sending Default Lenny");
+	var lennyface = {	
+		lefteye: " ͡°",	
+		righteye: " ͡°",
+		leftear: "(",
+		rightear: ")",
+		mouth: " ͜ʖ"
+	};		
+
+	if(req.query.lefteye){
+		lennyface.lefteye = req.query.lefteye;
+	}
 	
+	if(req.query.righteye){
+		lennyface.righteye = req.query.righteye;
+	}
+	
+	if(req.query.leftear){
+		lennyface.leftear = req.query.leftear;
+	}
+	
+	if(req.query.rightear){
+		lennyface.rightear = req.query.rightear;
+	}
+	
+	if(req.query.mouth){
+		lennyface.mouth = req.query.mouth;
+	}
+	
+	if(req.query.eyes){
+		lennyface.lefteye = req.query.eyes;
+		lennyface.righteye = req.query.eyes;
+	}
+	
+	if(req.query.ears){
+		lennyface.leftear = req.query.ears;
+		lennyface.rightear = req.query.ears;
+	}	
 	var response = {
-		"face": "( ͡° ͜ʖ ͡°)"
+		"face": lennyface.leftear + lennyface.lefteye + lennyface.mouth + lennyface.righteye + lennyface.rightear
 	}
 	res.send(response, {'content-type': 'application/json; charset=utf-8'});
 	return next();
