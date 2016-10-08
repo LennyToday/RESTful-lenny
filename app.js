@@ -34,6 +34,21 @@ function getRandom(arr) {
 }
 
 
+server.get('/api/v1/lenny', function(req, res, next)
+{
+	console.log("Sending Default Lenny");
+	
+	var response = {
+		"face": "( ͡° ͜ʖ ͡°)"
+	}
+	res.send(response);
+	return next();
+});
+
+
+
+
+
 server.listen(parseInt(process.argv[2]), function() {
 	  console.log('%s listening at %s', server.name, server.url);
 });
