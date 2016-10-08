@@ -204,9 +204,9 @@ Content-Type: application/json
 <br>
 
 #### Example Request
-Generate a **_Lenny_** with ᨓ for the mouth and * for the eyes.
+Generate 5 different **_Lenniez_** with ᨓ for the mouth and * for the eyes.
 
-`GET http://lenny.today/api/v1/random?mouth=%E1%A8%93&eyes=*`
+`GET http://lenny.today/api/v1/random?mouth=%E1%A8%93&eyes=*&limit=5`
 
 **Response**
 
@@ -217,7 +217,24 @@ Content-Type: application/json
 ```json
 [
   {
-    "face": "┬─┬ノ( *ᨓ*ノ)"
+    "seed": 1471673626,
+    "face": "ヽ(*ᨓ*)ﾉ"
+  },
+  {
+    "seed": 411656373,
+    "face": "ᕮ*ᨓ*ᕭ"
+  },
+  {
+    "seed": 3789943703,
+    "face": "ᕙ(*ᨓ*)ᕗ"
+  },
+  {
+    "seed": 1478520394,
+    "face": "ლ(*ᨓ*ლ)"
+  },
+  {
+    "seed": 4262060905,
+    "face": "|*ᨓ*|"
   }
 ]
 ```
