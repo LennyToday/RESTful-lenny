@@ -38,11 +38,23 @@ server.get('/api/v1/random', function(req, res, next) {
 
   console.log(req.query);
 
-  if(!req.query.limit){
+  if(!req.query.limit || parseInt(req.query.limit) < 0){
     req.query.limit = 1;
-  } else if(parseInt(req.query.limit) > 500){
+  } else {
+    req.query.limit = parseInt(req.query.limit);
+  }
+  if(parseInt(req.query.limit) > 500 || 
+     parseInt(req.query.limit) < 0 || 
+     (req.query.lefteye && req.query.lefteye.length > 16) || 
+     (req.query.leftear && req.query.leftear.length > 16) || 
+     (req.query.righteye && req.query.righteye.length > 16) || 
+     (req.query.rightear && req.query.rightear.length > 16) || 
+     (req.query.ears && req.query.ears.length > 16) || 
+     (req.query.eyes && req.query.eyes.length > 16) || 
+     (req.query.mouth && req.query.mouth.length > 16)){
     res.status(400);
     res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
+    next();
   }
 
   var lennies = [];
@@ -172,9 +184,20 @@ server.get('/api/v1/lenny', function(req, res, next)
 {
 
   console.log(req.query);
-  if(!req.query.limit){
+  if(!req.query.limit || parseInt(req.query.limit) < 0){
     req.query.limit = 1;
-  } else if(parseInt(req.query.limit) > 500){
+  } else {
+    req.query.limit = parseInt(req.query.limit);
+  }
+  if(parseInt(req.query.limit) > 500 || 
+     parseInt(req.query.limit) < 0 || 
+     (req.query.lefteye && req.query.lefteye.length > 16) || 
+     (req.query.leftear && req.query.leftear.length > 16) || 
+     (req.query.righteye && req.query.righteye.length > 16) || 
+     (req.query.rightear && req.query.rightear.length > 16) || 
+     (req.query.ears && req.query.ears.length > 16) || 
+     (req.query.eyes && req.query.eyes.length > 16) || 
+     (req.query.mouth && req.query.mouth.length > 16)){
     res.status(400);
     res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
     next();
@@ -277,9 +300,20 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
 
   console.log(req.query);
 
-  if(!req.query.limit){
+  if(!req.query.limit || parseInt(req.query.limit) < 0){
     req.query.limit = 1;
-  } else if(parseInt(req.query.limit) > 500){
+  } else {
+    req.query.limit = parseInt(req.query.limit);
+  }
+  if(parseInt(req.query.limit) > 500 || 
+     parseInt(req.query.limit) < 0 || 
+     (req.query.lefteye && req.query.lefteye.length > 16) || 
+     (req.query.leftear && req.query.leftear.length > 16) || 
+     (req.query.righteye && req.query.righteye.length > 16) || 
+     (req.query.rightear && req.query.rightear.length > 16) || 
+     (req.query.ears && req.query.ears.length > 16) || 
+     (req.query.eyes && req.query.eyes.length > 16) || 
+     (req.query.mouth && req.query.mouth.length > 16)){
     res.status(400);
     res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
     next();
