@@ -4,15 +4,28 @@ Providing ( ͡° ͜ʖ ͡°) to a hack near you!
 ![RESTful Lenny](http://i.imgur.com/LzBTC4r.png)
 
 ---
-## Get the original **_Lenny_**
-If no limit is specified, only 1 will be returned.<br>
-The maximum amount is 500.<br>
-#### Request
-Method: _GET_<br>
-Authentication: _None_
-> http://lenny.today/api/v1/lenny?limit=5
 
-#### Successful Response
+# API Documentation #
+
+* [Get the original **_Lenny_**](#original-lenny)
+* [Get a random **_Lenny_**](#random-lenny)
+* [Get a **_Lenny_** for a specific seed](#lenny-for-seed)
+
+<br>
+<a name="original-lenny"></a>
+## Get the original **_Lenny_**
+
+#### Request
+```GET``` **http://lenny.today/api/v1/lenny**
+
+You can request up to 500 copies of the original **_Lenny_** per request using the **limit** query parameter.<br>
+E.g. http://lenny.today/api/v1/lenny?limit=25 will return 25 copies.
+
+#### Example Request
+`GET http://lenny.today/api/v1/lenny`<br>
+
+**Response**
+
 HTTP Status Code: 200 OK<br>
 Content-Type: application/json
 
@@ -21,48 +34,39 @@ Content-Type: application/json
 [
   {
     "face": "( ͡° ͜ʖ ͡°)"
-  },
-  {
-    "face": "( ͡° ͜ʖ ͡°)"
-  },
-  {
-    "face": "( ͡° ͜ʖ ͡°)"
-  },
-  {
-    "face": "( ͡° ͜ʖ ͡°)"
-  },
-  {
-    "face": "( ͡° ͜ʖ ͡°)"
   }
 ]
 ```
 
-#### Error Response
+### Error Responses
+#### Invalid limit
+If you try to request too many **_Lenniez_**.
+
 HTTP Status Code: 400 BAD REQUEST<br>
 Content-Type: application/json
 
-**Example Response Body**<br>
-If you try to request too many **_Lenniez_**.
+**Response Body**<br>
 ```json
 {
   "ლ(⏓益⏓ლ)": "┬─┬ノ( ´ᗝ`ノ)"
 }
 ```
 
----
+___
 <br>
-
-## Get random **_Lenniez_**
-If no limit is specified, only 1 will be returned.<br>
-The maximum amount is 500.<br>
-The seed uniquely identify the generated **_Lenny_**.
+<a name="random-lenny"></a>
+## Get a random **_Lenny_**
 
 #### Request
-Method: _GET_<br>
-Authentication: _None_
-> http://lenny.today/api/v1/random?limit=5
+```GET``` **http://lenny.today/api/v1/random**
 
-#### Successful Response
+You can request up to 500 **different** **_Lenniez_** per request using the **limit** query parameter.<br>
+
+#### Example Request
+`GET http://lenny.today/api/v1/random?limit=5`<br>
+
+**Response**
+
 HTTP Status Code: 200 OK<br>
 Content-Type: application/json
 
@@ -92,31 +96,39 @@ Content-Type: application/json
 ]
 ```
 
-#### Error Response
+### Error Responses
+#### Invalid limit
+If you try to request too many **_Lenniez_**.
+
 HTTP Status Code: 400 BAD REQUEST<br>
 Content-Type: application/json
 
-**Example Response Body**<br>
-If you try to request too many **_Lenniez_**.
+**Response Body**<br>
 ```json
 {
   "ლ(⏓益⏓ლ)": "┬─┬ノ( ´ᗝ`ノ)"
 }
 ```
----
-<br>
 
+___
+<br>
+<a name="lenny-for-seed"></a>
 ## Get a **_Lenny_** for a specified seed
 Use the seed returned by the **random** endpoint.
 
-If no limit is specified, only 1 will be returned.<br>
-The maximum amount is 500.<br>
 #### Request
-Method: _GET_<br>
-Authentication: _None_
-> http://lenny.today/api/v1/lenny/seed/4266279875?limit=2
+```GET``` **http://lenny.today/api/v1/lenny/seed/_seednumber_**
 
-#### Successful Response
+You can request up to 500 copies of the original **_Lenny_** per request using the **limit** query parameter.<br>
+E.g. http://lenny.today/api/v1/lenny/seed/4266279875?limit=25 will return 25 copies.
+
+
+
+#### Example Request
+`GET http://lenny.today/api/v1/lenny/seed/4266279875`<br>
+
+**Response**
+
 HTTP Status Code: 200 OK<br>
 Content-Type: application/json
 
@@ -126,25 +138,20 @@ Content-Type: application/json
   {
     "seed": 4266279875,
     "face": "(づ♥⍊♥)づ"
-  },
-  {
-    "seed": 4266279875,
-    "face": "(づ♥⍊♥)づ"
   }
 ]
 ```
 
-#### Error Response
+### Error Responses
+#### Invalid limit
+If you try to request too many **_Lenniez_**.
+
 HTTP Status Code: 400 BAD REQUEST<br>
 Content-Type: application/json
 
-**Example Response Body**<br>
-If you try to request too many **_Lenniez_**.
+**Response Body**<br>
 ```json
 {
   "ლ(⏓益⏓ლ)": "┬─┬ノ( ´ᗝ`ノ)"
 }
 ```
-
----
-<br>
