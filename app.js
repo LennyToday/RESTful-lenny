@@ -12,6 +12,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 
 
 
+
 var lennySchema = mongoose.Schema({
   name: String,
   face: String
