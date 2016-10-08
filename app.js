@@ -125,7 +125,7 @@ function getRandom(arr,seed) {
 }
 
 
-server.post('/api/v1/lenny', function(req, res, next)
+/*server.post('/api/v1/lenny', function(req, res, next)
 {
   if(!req.query.name || !req.query.face){
     res.status(400); 
@@ -163,7 +163,7 @@ server.post('/api/v1/lenny', function(req, res, next)
 
 });
 }
-});
+});*/
 
 server.get('/api/v1/lenny', function(req, res, next)
 {
