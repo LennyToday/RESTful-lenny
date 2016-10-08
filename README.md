@@ -1,6 +1,8 @@
 # RESTful-lenny
 Providing ( ͡° ͜ʖ ͡°) to a hack near you!
 
+![RESTful Lenny](http://i.imgur.com/LzBTC4r.png)
+
 ---
 ### Get the original Lenny
 #### Request
