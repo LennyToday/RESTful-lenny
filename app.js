@@ -50,11 +50,12 @@ server.get('/api/v1/random', function(req, res, next) {
   for(var i=0;i<req.query.limit;i++){
 
 
-    var seed =  Math.floor((Math.random() * 4294967296));
+    var seed =  Math.floor((Math.random() * 4294967294));
 
+    //Give seeds different values to ensure randomness
     var ear = getRandom(lenny.ears,seed),
-        eye = getRandom(lenny.eyes,seed),
-      mouth = getRandom(lenny.mouths,seed);
+        eye = getRandom(lenny.eyes,seed+1),
+      mouth = getRandom(lenny.mouths,seed+2);
   
 	
 	var lennyface = {	
