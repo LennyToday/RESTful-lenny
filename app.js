@@ -101,6 +101,18 @@ function getRandom(arr,seed) {
 
 server.get('/api/v1/lenny', function(req, res, next)
 {
+
+  console.log(req.query);
+  if(!req.query.limit){
+    req.query.limit = 1;
+  } else if(parseInt(req.query.limit) > 500){
+    res.status(400);
+    res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'})
+  }	
+  var lennies = [];
+
+  for(var i=0;i<req.query.limit;i++){
+
 	var lennyface = {	
 		lefteye: " ͡°",	
 		righteye: " ͡°",
@@ -140,9 +152,12 @@ server.get('/api/v1/lenny', function(req, res, next)
 	}	
 	var response = {
 		"face": lennyface.leftear + lennyface.lefteye + lennyface.mouth + lennyface.righteye + lennyface.rightear
-	}
-	res.send(response, {'content-type': 'application/json; charset=utf-8'});
-	return next();
+	};
+	lennies.push(response);
+    }
+    res.json(lennies, {'content-type': 'application/json; charset=utf-8'})
+    next();
+  
 });
 
 
