@@ -174,6 +174,7 @@ server.get('/api/v1/lenny', function(req, res, next)
   } else if(parseInt(req.query.limit) > 500){
     res.status(400);
     res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
+    next();
   }	
   var lennies = [];
 
@@ -227,6 +228,48 @@ server.get('/api/v1/lenny', function(req, res, next)
 });
 
 
+server.get('/api/v1/lenny/name/:name', function(req, res, next) {
+
+  console.log(req.query);
+
+  if(!req.query.limit){
+    req.query.limit = 1;
+  } else if(parseInt(req.query.limit) > 500){
+    res.status(400);
+    res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'})
+    return next();
+  }
+
+  var lennies = [];
+
+
+  lennyModel.find( { name: req.params.name}, function(err, lenns) {
+    if(err) {
+      res.status(500);
+      lennies = {'[`╭╮`]':'ヽ(Ꝋ෴Ꝋ)ﾉ'};
+      res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
+      next();
+    } else if(lenns.length == 0) {
+      res.status(404);
+      lennies = {'ლ(⏓益⏓ლ)':'乁(ⴲ⏠ⴲ)ㄏ'};
+      res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
+      next();
+    } else {
+      for(var i=0;i<req.query.limit;i++){
+
+        var resp = {
+          name: req.params.name,
+          face: lenns[0].face
+        };
+        lennies.push(resp);
+      }
+      res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
+      return next();
+    }
+  });
+});
+
+
 server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
 
   console.log(req.query);
@@ -236,9 +279,11 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
   } else if(parseInt(req.query.limit) > 500){
     res.status(400);
     res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
+    next();
   } else if(parseInt(req.params.seedNumber) < 0){
     res.status(400);
     res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
+    next();
   }
 
   var lennies = [];
