@@ -1,6 +1,7 @@
 var restify  = require('restify'),
     gen      = require('random-seed'),
     mongoose = require('mongoose'),
+    config   = require('./config.json'),
     lenny    = require('./lenny');
 
 mongoose.connect('mongodb://localhost/lenniez');
@@ -364,6 +365,6 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
 
 
 
-server.listen(420, function() {
+server.listen(config.port, function() {
 	  console.log('%s listening at %s', server.name, server.url);
 });
