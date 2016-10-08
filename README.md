@@ -52,6 +52,6 @@ Content-Type: application/json
     {
         "face": "ʕ ﾟ ³ ﾟʔ"
     }
-}
+]
 ```
 ---
