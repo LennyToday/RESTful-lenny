@@ -39,7 +39,7 @@ server.get('/api/v1/random', function(req, res, next) {
     };
     lennies.push(resp);
   }
-  res.json(lennies);
+  res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
   next();
 });
 
@@ -55,7 +55,7 @@ server.get('/api/v1/lenny', function(req, res, next)
 	var response = {
 		"face": "( ͡° ͜ʖ ͡°)"
 	}
-	res.send(response);
+	res.send(response, {'content-type': 'application/json; charset=utf-8'});
 	return next();
 });
 
