@@ -1,4 +1,5 @@
 var restify = require('restify'),
+    gen     = require('random-seed'),
     lenny   = require('./lenny');
 
 var server = restify.createServer();
