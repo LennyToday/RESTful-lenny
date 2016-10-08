@@ -298,8 +298,8 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
     var seed = parseInt(req.params.seedNumber);
 
     var ear = getRandom(lenny.ears,seed),
-        eye = getRandom(lenny.eyes,seed),
-      mouth = getRandom(lenny.mouths,seed);
+        eye = getRandom(lenny.eyes,seed+1),
+      mouth = getRandom(lenny.mouths,seed+2);
   
 	
 	var lennyface = {	
