@@ -170,6 +170,7 @@ If you're generating a **random** **_Lenny_**, any parts of the face you don't s
 ### Query Parameters
 **All of these are optional.**<br>
 Make sure to [URL Encode](http://meyerweb.com/eric/tools/dencoder/) your query parameters. (Your web browser will do this for you _most_ of the time)
+
 | Name | Description | Example | **_Lenny_** |
 |---|---|---|---|
 | limit | Specify how many copies of the face to return. 500 max. | http://lenny.today/api/v1/lenny?limit=25 | ( ͡° ͜ʖ ͡°) |
