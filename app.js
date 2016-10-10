@@ -267,9 +267,14 @@ server.get('/api/v1/lenny/name/:name', function(req, res, next) {
     res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'})
     return next();
   }
+  
+  if (!config.mongoose) {
+    res.status(404);
+    res.json({'ლ(⏓益⏓ლ)':'乁(ⴲ⏠ⴲ)ㄏ'})
+    return next();
+  }
 
   var lennies = [];
-
 
   lennyModel.find( { name: req.params.name}, function(err, lenns) {
     if(err) {
