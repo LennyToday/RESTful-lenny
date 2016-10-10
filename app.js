@@ -6,31 +6,28 @@ var restify  = require('restify'),
 
 if (config.mongoose)
 {
-	mongoose.connect('mongodb://localhost/lenniez');
+  mongoose.connect('mongodb://localhost/lenniez');
 
-	var db = mongoose.connection;
-	
-	db.on('error', console.error.bind(console, 'connection error:'));
+  var db = mongoose.connection;
+  
+  db.on('error', console.error.bind(console, 'connection error:'));
 
-	var lennySchema = mongoose.Schema({
-	name: String,
-	face: String
-	});
+  var lennySchema = mongoose.Schema({
+  name: String,
+  face: String
+  });
 
-	var lennyModel = mongoose.model('lenny', lennySchema);
-	
-	db.once('open', function() {
-		console.log('db online boyz');
-		var lDizzle = new lennyModel({ name: 'lenny', face: '( ͡° ͜ʖ ͡°)'});
-		Dizzle.save(function (err, ld) {
-			if(err) console.log(err);
-			if(err) return console.error(err);
-		});
-	});
+  var lennyModel = mongoose.model('lenny', lennySchema);
+  
+  db.once('open', function() {
+    console.log('db online boyz');
+    var lDizzle = new lennyModel({ name: 'lenny', face: '( ͡° ͜ʖ ͡°)'});
+    Dizzle.save(function (err, ld) {
+      if(err) console.log(err);
+      if(err) return console.error(err);
+    });
+  });
 }
-
-
-
 
 var server = restify.createServer();
 server.use(restify.queryParser());
@@ -70,14 +67,14 @@ server.get('/api/v1/random', function(req, res, next) {
         eye = getRandom(lenny.eyes,seed+1),
       mouth = getRandom(lenny.mouths,seed+2);
   
-	
-	var lennyface = {	
-		lefteye: "",	
-		righteye: "",
-		leftear: "",
-		rightear: "",
-		mouth: ""
-	};		
+  
+  var lennyface = { 
+    lefteye: "",  
+    righteye: "",
+    leftear: "",
+    rightear: "",
+    mouth: ""
+  };    
 
   
 
@@ -92,38 +89,38 @@ server.get('/api/v1/random', function(req, res, next) {
     } else {
       lennyface.lefteye = eye[0], lennyface.righteye = eye[1];
     }
-	lennyface.mouth = mouth;
+  lennyface.mouth = mouth;
 
 
-	if(req.query.lefteye){
-		lennyface.lefteye = req.query.lefteye;
-	}
-	
-	if(req.query.righteye){
-		lennyface.righteye = req.query.righteye;
-	}
-	
-	if(req.query.leftear){
-		lennyface.leftear = req.query.leftear;
-	}
-	
-	if(req.query.rightear){
-		lennyface.rightear = req.query.rightear;
-	}
-	
-	if(req.query.mouth){
-		lennyface.mouth = req.query.mouth;
-	}
-	
-	if(req.query.eyes){
-		lennyface.lefteye = req.query.eyes;
-		lennyface.righteye = req.query.eyes;
-	}
-	
-	if(req.query.ears){
-		lennyface.leftear = req.query.ears;
-		lennyface.rightear = req.query.ears;
-	}	
+  if(req.query.lefteye){
+    lennyface.lefteye = req.query.lefteye;
+  }
+  
+  if(req.query.righteye){
+    lennyface.righteye = req.query.righteye;
+  }
+  
+  if(req.query.leftear){
+    lennyface.leftear = req.query.leftear;
+  }
+  
+  if(req.query.rightear){
+    lennyface.rightear = req.query.rightear;
+  }
+  
+  if(req.query.mouth){
+    lennyface.mouth = req.query.mouth;
+  }
+  
+  if(req.query.eyes){
+    lennyface.lefteye = req.query.eyes;
+    lennyface.righteye = req.query.eyes;
+  }
+  
+  if(req.query.ears){
+    lennyface.leftear = req.query.ears;
+    lennyface.rightear = req.query.ears;
+  } 
 
     var resp = {
       seed: seed,
@@ -161,17 +158,17 @@ function getRandom(arr,seed) {
       if(newLen.length > 0){
         res.status(409);
         res.json({'ლ(⏓益⏓ლ)':' ºل͟º ༼ ºل͟º ༼ ´ᗝ` ༽ ºل͟º ༽ ºل͟º ༽'}, {'content-type': 'application/json; charset=utf-8'})
-	next();   
+  next();   
      } else {
-	
+  
       var newLenny = new lennyModel({name: newName, face: newFace});
       newLenny.save(function(err, newLenny){
-	if(err){
-	  res.status(500);
-	  lennies = {'[`╭╮`]':'ヽ(Ꝋ෴Ꝋ)ﾉ'};
+  if(err){
+    res.status(500);
+    lennies = {'[`╭╮`]':'ヽ(Ꝋ෴Ꝋ)ﾉ'};
           res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
-	  next();
-	}
+    next();
+  }
       });
       res.status(200);
       res.json({'ᕕ( ᐛ )ᕗ' : '( ͡° ͜ʖ ͡°)' }, {'content-type': 'application/json; charset=utf-8'})
@@ -203,52 +200,52 @@ server.get('/api/v1/lenny', function(req, res, next)
     res.status(400);
     res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
     next();
-  }	
+  } 
   var lennies = [];
 
   for(var i=0;i<req.query.limit;i++){
 
-	var lennyface = {	
-		lefteye: " ͡°",	
-		righteye: " ͡°",
-		leftear: "(",
-		rightear: ")",
-		mouth: " ͜ʖ"
-	};		
+  var lennyface = { 
+    lefteye: " ͡°", 
+    righteye: " ͡°",
+    leftear: "(",
+    rightear: ")",
+    mouth: " ͜ʖ"
+  };    
 
-	if(req.query.lefteye){
-		lennyface.lefteye = req.query.lefteye;
-	}
-	
-	if(req.query.righteye){
-		lennyface.righteye = req.query.righteye;
-	}
-	
-	if(req.query.leftear){
-		lennyface.leftear = req.query.leftear;
-	}
-	
-	if(req.query.rightear){
-		lennyface.rightear = req.query.rightear;
-	}
-	
-	if(req.query.mouth){
-		lennyface.mouth = req.query.mouth;
-	}
-	
-	if(req.query.eyes){
-		lennyface.lefteye = req.query.eyes;
-		lennyface.righteye = req.query.eyes;
-	}
-	
-	if(req.query.ears){
-		lennyface.leftear = req.query.ears;
-		lennyface.rightear = req.query.ears;
-	}	
-	var response = {
-		"face": lennyface.leftear + lennyface.lefteye + lennyface.mouth + lennyface.righteye + lennyface.rightear
-	};
-	lennies.push(response);
+  if(req.query.lefteye){
+    lennyface.lefteye = req.query.lefteye;
+  }
+  
+  if(req.query.righteye){
+    lennyface.righteye = req.query.righteye;
+  }
+  
+  if(req.query.leftear){
+    lennyface.leftear = req.query.leftear;
+  }
+  
+  if(req.query.rightear){
+    lennyface.rightear = req.query.rightear;
+  }
+  
+  if(req.query.mouth){
+    lennyface.mouth = req.query.mouth;
+  }
+  
+  if(req.query.eyes){
+    lennyface.lefteye = req.query.eyes;
+    lennyface.righteye = req.query.eyes;
+  }
+  
+  if(req.query.ears){
+    lennyface.leftear = req.query.ears;
+    lennyface.rightear = req.query.ears;
+  } 
+  var response = {
+    "face": lennyface.leftear + lennyface.lefteye + lennyface.mouth + lennyface.righteye + lennyface.rightear
+  };
+  lennies.push(response);
     }
     res.json(lennies, {'content-type': 'application/json; charset=utf-8'})
     next();
@@ -341,14 +338,14 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
         eye = getRandom(lenny.eyes,seed+1),
       mouth = getRandom(lenny.mouths,seed+2);
   
-	
-	var lennyface = {	
-		lefteye: "",	
-		righteye: "",
-		leftear: "",
-		rightear: "",
-		mouth: ""
-	};		
+  
+  var lennyface = { 
+    lefteye: "",  
+    righteye: "",
+    leftear: "",
+    rightear: "",
+    mouth: ""
+  };    
 
   
 
@@ -363,38 +360,38 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
     } else {
       lennyface.lefteye = eye[0], lennyface.righteye = eye[1];
     }
-	lennyface.mouth = mouth;
+  lennyface.mouth = mouth;
 
 
-	if(req.query.lefteye){
-		lennyface.lefteye = req.query.lefteye;
-	}
-	
-	if(req.query.righteye){
-		lennyface.righteye = req.query.righteye;
-	}
-	
-	if(req.query.leftear){
-		lennyface.leftear = req.query.leftear;
-	}
-	
-	if(req.query.rightear){
-		lennyface.rightear = req.query.rightear;
-	}
-	
-	if(req.query.mouth){
-		lennyface.mouth = req.query.mouth;
-	}
-	
-	if(req.query.eyes){
-		lennyface.lefteye = req.query.eyes;
-		lennyface.righteye = req.query.eyes;
-	}
-	
-	if(req.query.ears){
-		lennyface.leftear = req.query.ears;
-		lennyface.rightear = req.query.ears;
-	}	
+  if(req.query.lefteye){
+    lennyface.lefteye = req.query.lefteye;
+  }
+  
+  if(req.query.righteye){
+    lennyface.righteye = req.query.righteye;
+  }
+  
+  if(req.query.leftear){
+    lennyface.leftear = req.query.leftear;
+  }
+  
+  if(req.query.rightear){
+    lennyface.rightear = req.query.rightear;
+  }
+  
+  if(req.query.mouth){
+    lennyface.mouth = req.query.mouth;
+  }
+  
+  if(req.query.eyes){
+    lennyface.lefteye = req.query.eyes;
+    lennyface.righteye = req.query.eyes;
+  }
+  
+  if(req.query.ears){
+    lennyface.leftear = req.query.ears;
+    lennyface.rightear = req.query.ears;
+  } 
 
     var resp = {
       seed: seed,
@@ -409,5 +406,5 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
 
 
 server.listen(config.port, function() {
-	  console.log('%s listening at %s', server.name, server.url);
+    console.log('%s listening at %s', server.name, server.url);
 });
