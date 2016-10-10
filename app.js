@@ -4,31 +4,32 @@ var restify  = require('restify'),
     config   = require('./config.json'),
     lenny    = require('./lenny');
 
-mongoose.connect('mongodb://localhost/lenniez');
+if (config.mongoose)
+{
+	mongoose.connect('mongodb://localhost/lenniez');
 
-var db = mongoose.connection;
+	var db = mongoose.connection;
+	
+	db.on('error', console.error.bind(console, 'connection error:'));
 
-db.on('error', console.error.bind(console, 'connection error:'));
+	var lennySchema = mongoose.Schema({
+	name: String,
+	face: String
+	});
+
+	var lennyModel = mongoose.model('lenny', lennySchema);
+	
+	db.once('open', function() {
+		console.log('db online boyz');
+		var lDizzle = new lennyModel({ name: 'lenny', face: '( ͡° ͜ʖ ͡°)'});
+		Dizzle.save(function (err, ld) {
+			if(err) console.log(err);
+			if(err) return console.error(err);
+		});
+	});
+}
 
 
-
-
-var lennySchema = mongoose.Schema({
-  name: String,
-  face: String
-});
-
-var lennyModel = mongoose.model('lenny', lennySchema);
-
-
-db.once('open', function() {
-  console.log('db online boyz');
-  var lDizzle = new lennyModel({ name: 'lenny', face: '( ͡° ͜ʖ ͡°)'});
-  lDizzle.save(function (err, ld) {
-    if(err) console.log(err);
-    if(err) return console.error(err);
-  });
-});
 
 
 var server = restify.createServer();
