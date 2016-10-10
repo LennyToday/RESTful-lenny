@@ -5,7 +5,7 @@
 }
 
 function fromCode(code) {
-  return errors[code] || "(?? ???)?????";
+  return errors[code] || "( ͡° ͜ʖ ͡°)";
 }
 
 module.exports = {
