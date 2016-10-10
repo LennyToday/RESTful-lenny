@@ -10,7 +10,7 @@ function defaultLenny() {
 
 function create(lennyOptions, lennyFace) {
 
-  lennyFace = lennyFace || {};
+  lennyFace = lennyFace || defaultLenny();
 
   if(lennyOptions.lefteye){
     lennyFace.lefteye = lennyOptions.lefteye;
