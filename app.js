@@ -3,7 +3,8 @@ var restify       = require('restify'),
     mongoose      = require('mongoose'),
     config        = require('./config.json'),
     lenny         = require('./lenny'),
-    lennyFactory  = require('./lennyFactory');
+    lennyFactory  = require('./lennyFactory'),
+    errors        = require('./errors');
 
 if (config.mongoose)
 {
@@ -52,7 +53,7 @@ server.get('/api/v1/random', function(req, res, next) {
      (req.query.eyes && req.query.eyes.length > 16) || 
      (req.query.mouth && req.query.mouth.length > 16)){
     res.status(400);
-    res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
+    res.json(errors.fromCode(400), {'content-type': 'application/json; charset=utf-8'})
     next();
   }
 
@@ -169,7 +170,7 @@ server.get('/api/v1/lenny', function(req, res, next)
      (req.query.eyes && req.query.eyes.length > 16) || 
      (req.query.mouth && req.query.mouth.length > 16)){
     res.status(400);
-    res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
+    res.json(errors.fromCode(400), {'content-type': 'application/json; charset=utf-8'})
     next();
   } 
   var lennies = [];
@@ -198,13 +199,13 @@ server.get('/api/v1/lenny/name/:name', function(req, res, next) {
     req.query.limit = 1;
   } else if(parseInt(req.query.limit) > 500){
     res.status(400);
-    res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'})
+    res.json(errors.fromCode(400))
     return next();
   }
   
   if (!config.mongoose) {
     res.status(404);
-    res.json({'ლ(⏓益⏓ლ)':'乁(ⴲ⏠ⴲ)ㄏ'})
+    res.json(errors.fromCode(404))
     return next();
   }
 
@@ -213,12 +214,12 @@ server.get('/api/v1/lenny/name/:name', function(req, res, next) {
   lennyModel.find( { name: req.params.name}, function(err, lenns) {
     if(err) {
       res.status(500);
-      lennies = {'[`╭╮`]':'ヽ(Ꝋ෴Ꝋ)ﾉ'};
+      lennies = errors.fromCode(500);
       res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
       next();
     } else if(lenns.length == 0) {
       res.status(404);
-      lennies = {'ლ(⏓益⏓ლ)':'乁(ⴲ⏠ⴲ)ㄏ'};
+      lennies = errors.fromCode(404);
       res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
       next();
     } else {
@@ -255,11 +256,11 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
      (req.query.eyes && req.query.eyes.length > 16) || 
      (req.query.mouth && req.query.mouth.length > 16)){
     res.status(400);
-    res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
+    res.json(errors.fromCode(400), {'content-type': 'application/json; charset=utf-8'})
     next();
   } else if(parseInt(req.params.seedNumber) < 0){
     res.status(400);
-    res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
+    res.json(errors.fromCode(400), {'content-type': 'application/json; charset=utf-8'})
     next();
   }
 
