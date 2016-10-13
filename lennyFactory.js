@@ -1,10 +1,10 @@
 function defaultLenny() {
   return {
-    lefteye: " ͡° ", 
-    righteye: " ͡°",
+    lefteye: " ͡°", 
+    righteye: "͡°",
     leftear: "(",
     rightear: ")",
-    mouth: "ʖ"
+    mouth: " ͜ʖ "
   };
 }
 
