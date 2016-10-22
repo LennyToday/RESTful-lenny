@@ -1,4 +1,5 @@
-# RESTful-**_Lenny_**
+# RESTful-**_Lenny_** 
+_A **Lenny** API_<br>
 Providing ( ͡° ͜ʖ ͡°) to a hack near you!
 
 ![RESTful Lenny](http://i.imgur.com/LzBTC4r.png)
