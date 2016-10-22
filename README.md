@@ -1,8 +1,9 @@
 # RESTful-**_Lenny_** 
-_A **Lenny** API_<br>
 Providing ( ͡° ͜ʖ ͡°) to a hack near you!
 
 ![RESTful Lenny](http://i.imgur.com/LzBTC4r.png)
+
+_A **Lenny** API_. Use this to bring **_Lenny_** face to your applications!
 
 ---
 
