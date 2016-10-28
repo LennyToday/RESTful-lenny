@@ -175,8 +175,23 @@ var ears = [
   ['|']
 ];
 
+function filterable(elems) {
+  return {
+    all: elems,
+    without: function(elemsToIgnore) {
+      var filteredElems = [];
+      for (var i in elems) {
+        if (elemsToIgnore.indexOf(elems[i]) === -1) {
+          filteredElems.push(elems[i]);
+        }
+      }
+      return filteredElems;
+    }
+  };
+}
+
 module.exports = {
-  ears:ears,
-  eyes:eyes,
-  mouths:mouths
+  ears: filterable(ears),
+  eyes: filterable(eyes),
+  mouths: filterable(mouths)
 };
