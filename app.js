@@ -65,9 +65,9 @@ server.get('/api/v1/random', function(req, res, next) {
     var seed =  Math.floor((Math.random() * 4294967294));
 
     //Give seeds different values to ensure randomness
-    var ear = getRandom(lenny.ears,seed),
-        eye = getRandom(lenny.eyes,seed+1),
-      mouth = getRandom(lenny.mouths,seed+2);
+    var ear = getRandom(lenny.ears.all, seed),
+        eye = getRandom(lenny.eyes.all, seed+1),
+      mouth = getRandom(lenny.mouths.all, seed+2);
   
   
     var lennyface = { 
@@ -270,9 +270,9 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
 
     var seed = parseInt(req.params.seedNumber);
 
-    var ear = getRandom(lenny.ears,seed),
-        eye = getRandom(lenny.eyes,seed+1),
-      mouth = getRandom(lenny.mouths,seed+2);
+    var ear = getRandom(lenny.ears.all,seed),
+        eye = getRandom(lenny.eyes.all,seed+1),
+      mouth = getRandom(lenny.mouths.all,seed+2);
   
   
     var lennyface = { 
