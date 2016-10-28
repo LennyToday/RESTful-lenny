@@ -111,47 +111,6 @@ function getRandom(arr,seed) {
   return arr[Math.floor(rand.random()*arr.length)];
 }
 
-
-/*server.post('/api/v1/lenny', function(req, res, next)
-{
-  if(!req.query.name || !req.query.face){
-    res.status(400); 
-    res.json({'ლ(⏓益⏓ლ)':'┬─┬ノ( ´ᗝ`ノ)'}, {'content-type': 'application/json; charset=utf-8'})
-  } else {
-    var newName = req.query.name;
-    var newFace = req.query.face;
-
-  lennyModel.find({name: newName}, function(err,newLen){ 
-    if(err){
-      res.status(500);
-      lennies = {'[`╭╮`]':'ヽ(Ꝋ෴Ꝋ)ﾉ'};
-      res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
-      next();
-    } 
-      if(newLen.length > 0){
-        res.status(409);
-        res.json({'ლ(⏓益⏓ლ)':' ºل͟º ༼ ºل͟º ༼ ´ᗝ` ༽ ºل͟º ༽ ºل͟º ༽'}, {'content-type': 'application/json; charset=utf-8'})
-  next();   
-     } else {
-  
-      var newLenny = new lennyModel({name: newName, face: newFace});
-      newLenny.save(function(err, newLenny){
-  if(err){
-    res.status(500);
-    lennies = {'[`╭╮`]':'ヽ(Ꝋ෴Ꝋ)ﾉ'};
-          res.json(lennies, {'content-type': 'application/json; charset=utf-8'});
-    next();
-  }
-      });
-      res.status(200);
-      res.json({'ᕕ( ᐛ )ᕗ' : '( ͡° ͜ʖ ͡°)' }, {'content-type': 'application/json; charset=utf-8'})
-      next();
-  }
-
-});
-}
-});*/
-
 server.get('/api/v1/lenny', function(req, res, next)
 {
   console.log(req.query);
