@@ -1,6 +1,6 @@
 function defaultLenny() {
   return {
-    lefteye: " ͡°", 
+    lefteye: " ͡°",
     righteye: "͡°",
     leftear: "(",
     rightear: ")",
