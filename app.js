@@ -1,35 +1,9 @@
 var restify       = require('restify'),
     gen           = require('random-seed'),
-    mongoose      = require('mongoose'),
     config        = require('./config.json'),
     lenny         = require('./lenny'),
     lennyFactory  = require('./lennyFactory'),
     errors        = require('./errors');
-
-if (config.mongoose)
-{
-  mongoose.connect('mongodb://localhost/lenniez');
-
-  var db = mongoose.connection;
-  
-  db.on('error', console.error.bind(console, 'connection error:'));
-
-  var lennySchema = mongoose.Schema({
-  name: String,
-  face: String
-  });
-
-  var lennyModel = mongoose.model('lenny', lennySchema);
-  
-  db.once('open', function() {
-    console.log('db online boyz');
-    var lDizzle = new lennyModel({ name: 'lenny', face: '( ͡° ͜ʖ ͡°)'});
-    Dizzle.save(function (err, ld) {
-      if(err) console.log(err);
-      if(err) return console.error(err);
-    });
-  });
-}
 
 var server = restify.createServer();
 server.use(restify.queryParser());
@@ -174,12 +148,6 @@ server.get('/api/v1/lenny/name/:name', function(req, res, next) {
   } else if(parseInt(req.query.limit) > 500){
     res.status(400);
     res.json(errors.fromCode(400))
-    return next();
-  }
-  
-  if (!config.mongoose) {
-    res.status(404);
-    res.json(errors.fromCode(404))
     return next();
   }
 
