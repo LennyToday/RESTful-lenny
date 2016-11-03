@@ -71,7 +71,7 @@ server.get('/api/v1/random', function(req, res, next) {
       seed: seed,
       face: lennyface.leftear + lennyface.lefteye + lennyface.mouth + lennyface.righteye + lennyface.rightear
     };
-    
+   
     lennies.push(resp);
   }
   
