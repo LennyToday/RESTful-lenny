@@ -111,6 +111,21 @@ function getRandom(arr,seed) {
   return arr[Math.floor(rand.random()*arr.length)];
 }
 
+server.get('/api/v1/lenny/ears', function(req, res, next) {
+  res.json(lenny.ears.all);
+  next();
+});
+
+server.get('/api/v1/lenny/eyes', function(req, res, next) {
+  res.json(lenny.eyes.all);
+  next();
+});
+
+server.get('/api/v1/lenny/mouths', function(req, res, next) {
+  res.json(lenny.mouths.all);
+  next();
+});
+
 server.get('/api/v1/lenny', function(req, res, next)
 {
   console.log(req.query);
