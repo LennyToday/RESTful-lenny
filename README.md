@@ -16,6 +16,7 @@ _A **Lenny** API_. Use this to bring **_Lenny_** face to your applications!
 
 <br>
 <a name="original-lenny"></a>
+
 ## Get the original **_Lenny_**
 
 #### Request
@@ -58,6 +59,7 @@ Content-Type: application/json
 ___
 <br>
 <a name="random-lenny"></a>
+
 ## Get a random **_Lenny_**
 
 #### Request
@@ -116,6 +118,7 @@ Content-Type: application/json
 ___
 <br>
 <a name="lenny-for-seed"></a>
+
 ## Get a **_Lenny_** for a specified seed
 Use the seed returned by the **random** endpoint.
 
@@ -162,6 +165,7 @@ Content-Type: application/json
 ___
 <br>
 <a name="customise-lenny"></a>
+
 ## Customise **_Lenny_**
 When getting a random or the original **_Lenny_**, you can specify what characters to use for the different parts of the face.
 
