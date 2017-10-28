@@ -212,6 +212,8 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
   next();
 });
 
-server.listen(config.port, function() {
+
+var port = process.env.PORT || config.port;
+server.listen(port, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
