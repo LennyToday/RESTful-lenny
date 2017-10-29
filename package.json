@@ -4,13 +4,16 @@
   "description": "Provides some much needed dongage to your day to day activities",
   "main": "app.js",
   "dependencies": {
-    "mongoose": "^4.6.3",
+    "optional": "^0.1.4",
     "random-seed": "^0.3.0",
     "restify": "^4.1.1"
   },
+  "engines": {
+    "node": ">=8.2.1"
+  },
   "devDependencies": {},
   "scripts": {
-    "test": "node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
