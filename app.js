@@ -1,3 +1,7 @@
+const appInsights = require("applicationinsights");
+appInsights.setup().start();
+
+
 var restify       = require('restify'),
     gen           = require('random-seed'),
     optional      = require('optional'),
@@ -6,7 +10,6 @@ var restify       = require('restify'),
     errors        = require('./errors');
 
 var localConfig = optional('./config.json');
-
 
 var server = restify.createServer();
 server.use(restify.queryParser());
@@ -216,7 +219,6 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
 });
 
 
-console.log(localConfig);
 var port = process.env.PORT || (localConfig && localConfig.port) || 1999;
 
 server.listen(port, function() {
