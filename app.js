@@ -1,8 +1,12 @@
 var restify       = require('restify'),
     gen           = require('random-seed'),
+    optional      = require('optional'),
     lenny         = require('./lenny'),
     lennyFactory  = require('./lennyFactory'),
     errors        = require('./errors');
+
+var localConfig = optional('./config.json');
+
 
 var server = restify.createServer();
 server.use(restify.queryParser());
@@ -212,7 +216,9 @@ server.get('/api/v1/lenny/seed/:seedNumber', function(req, res, next) {
 });
 
 
-var port = process.env.PORT || 1999;
+console.log(localConfig);
+var port = process.env.PORT || (localConfig && localConfig.port) || 1999;
+
 server.listen(port, function() {
     console.log('%s listening at %s', server.name, server.url);
 });
