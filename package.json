@@ -4,6 +4,7 @@
   "description": "Provides some much needed dongage to your day to day activities",
   "main": "app.js",
   "dependencies": {
+    "applicationinsights": "^1.0.0",
     "optional": "^0.1.4",
     "random-seed": "^0.3.0",
     "restify": "^4.1.1"
