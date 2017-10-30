@@ -1,5 +1,7 @@
 const appInsights = require("applicationinsights");
-appInsights.setup().start();
+
+if(process.env.APPINSIGHTS_INSTRUMENTATIONKEY != undefined)
+  appInsights.setup().start();
 
 
 var restify       = require('restify'),
@@ -17,6 +19,10 @@ server.use(function(req, res, next){
   console.log("[", new Date().toUTCString(), "] ", req.method, " ", req.url);
   next();
 })
+
+server.get('/', function(req, res, next){
+  res.redirect('https://github.com/Casper-Oakley/RESTful-lenny', next);
+});
 
 server.get('/api/v1/random', function(req, res, next) {
 
