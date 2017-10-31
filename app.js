@@ -24,6 +24,11 @@ server.get('/', function(req, res, next){
   res.redirect('https://github.com/Casper-Oakley/RESTful-lenny', next);
 });
 
+server.get('/robots.txt', restify.plugins.serveStatic({
+  directory: './content',
+  file: 'robots.txt'
+}));
+
 server.get('/api/v1/random', function(req, res, next) {
 
   if(!req.query.limit || parseInt(req.query.limit) < 0){
