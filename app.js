@@ -29,6 +29,11 @@ server.get('/robots.txt', restify.plugins.serveStatic({
   file: 'robots.txt'
 }));
 
+server.get('favicon.ico', restify.plugins.serveStatic({
+  directory: './content',
+  file: 'favicon.ico'
+}));
+
 server.get('/api/v1/random', function(req, res, next) {
 
   if(!req.query.limit || parseInt(req.query.limit) < 0){
