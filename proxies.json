@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root redirect": {
+            "matchCondition": {
+                "route": "/"
+            },
+            "responseOverrides": {
+                "response.statusCode": "303",
+                "response.headers.Location": "https://github.com/Casper-Oakley/RESTful-lenny"
+            }
+        },
+        "Favicon": {
+            "matchCondition": {
+                "route": "/favicon.ico"
+            },
+            "responseOverrides": {
+                "response.statusCode": "303",
+                "response.headers.Location": "https://raw.githubusercontent.com/Casper-Oakley/RESTful-lenny/master/content/favicon.ico"
+            }
+        },
+        "Robots": {
+            "matchCondition": {
+                "route": "/robots.txt"
+            },
+            "responseOverrides": {
+                "response.statusCode": "303",
+                "response.headers.Location": "https://raw.githubusercontent.com/Casper-Oakley/RESTful-lenny/master/content/robots.txt"
+            }
+        }
+    }
+}
