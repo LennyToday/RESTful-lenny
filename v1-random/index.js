@@ -1,7 +1,8 @@
 var gen           = require('random-seed'),
     lenny         = require('./lenny'),
     lennyFactory  = require('./lennyFactory'),
-    errors        = require('./errors');
+    errors        = require('./errors'),
+    response      = require("../shared/response");
 
 function getRandom(arr, seed) {
     var rand = gen.create(seed);
@@ -17,15 +18,7 @@ module.exports = function (context, req)
     }
 
     if(limit > 500 || limit < 0){
-        context.res = {
-            status: 400,
-            headers: { 
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: errors.fromCode(400),
-            isRaw: true
-        };
-
+        context.res = response.error(400, errors.fromCode(400), true);
         context.done();
     }
 
@@ -37,15 +30,7 @@ module.exports = function (context, req)
         (req.query.eyes && req.query.eyes.length > 16) || 
         (req.query.mouth && req.query.mouth.length > 16))
     {
-        context.res = {
-            status: 400,
-            headers: { 
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            body: errors.fromCode(400),
-            isRaw: true
-        };
-
+        context.res = response.error(400, errors.fromCode(400), true);
         context.done();
     }
 
@@ -90,12 +75,6 @@ module.exports = function (context, req)
         lennies.push(resp);
     }
 
-    context.res = {
-        headers: { 
-            "Content-Type": "application/json; charset=utf-8"
-        },
-        body: lennies
-    };
-
+    context.res = response.success(lennies);
     context.done();
 };
