@@ -7,6 +7,10 @@ _A **Lenny** API_. Use this to bring **_Lenny_** face to your applications!
 
 ---
 
+To run the API, see SETUP.md.
+
+---
+
 # API Documentation #
 
 * [Get the original **_Lenny_**](#original-lenny)

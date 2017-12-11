@@ -10,7 +10,9 @@
   "engines": {
     "node": ">=8.2.1"
   },
-  "scripts": { },
+  "scripts": {
+    "start": "func host start"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Casper-Oakley/RESTful-lenny.git"

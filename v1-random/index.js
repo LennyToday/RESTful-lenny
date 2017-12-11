@@ -25,6 +25,11 @@ module.exports = function (context, req)
     }
 
     /*
+    if(!req.query.limit || parseInt(req.query.limit) < 0){
+    req.query.limit = 1;
+  } else {
+    req.query.limit = parseInt(req.query.limit);
+  }
 
   if(parseInt(req.query.limit) > 500 ||
      parseInt(req.query.limit) < 0 || 
