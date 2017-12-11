@@ -1,7 +1,7 @@
 # RESTful-**_Lenny_** 
 Providing ( ͡° ͜ʖ ͡°) to a hack near you!
 
-![RESTful Lenny](http://i.imgur.com/LzBTC4r.png)
+![RESTful Lenny](https://i.imgur.com/LzBTC4r.png)
 
 _A **Lenny** API_. Use this to bring **_Lenny_** face to your applications!
 
@@ -15,7 +15,6 @@ To run the API, see SETUP.md.
 
 * [Get the original **_Lenny_**](#original-lenny)
 * [Get a random **_Lenny_**](#random-lenny)
-* [Get a **_Lenny_** for a specific seed](#lenny-for-seed)
 * [Customise your **_Lenny_**](#customise-lenny)
 
 <br>
@@ -101,53 +100,6 @@ Content-Type: application/json
   {
     "seed": 3152860005,
     "face": "(づ■⍊■)づ"
-  }
-]
-```
-
-### Error Responses
-#### Invalid limit
-If you try to request too many **_Lenniez_**.
-
-HTTP Status Code: 400 BAD REQUEST<br>
-Content-Type: application/json
-
-**Response Body**<br>
-```json
-{
-  "ლ(⏓益⏓ლ)": "┬─┬ノ( ´ᗝ`ノ)"
-}
-```
-
-___
-<br>
-<a name="lenny-for-seed"></a>
-
-## Get a **_Lenny_** for a specified seed
-Use the seed returned by the **random** endpoint.
-
-#### Request
-```GET``` **http://lenny.today/api/v1/lenny/seed/_seednumber_**
-
-You can request up to 500 copies of the original **_Lenny_** per request using the **limit** query parameter.<br>
-E.g. http://lenny.today/api/v1/lenny/seed/4266279875?limit=25 will return 25 copies.
-
-
-
-#### Example Request
-`GET http://lenny.today/api/v1/lenny/seed/4266279875`<br>
-
-**Response**
-
-HTTP Status Code: 200 OK<br>
-Content-Type: application/json
-
-**Example Response Body**
-```json
-[
-  {
-    "seed": 4266279875,
-    "face": "(づ♥⍊♥)づ"
   }
 ]
 ```
