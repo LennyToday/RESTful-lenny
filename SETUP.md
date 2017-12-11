@@ -13,5 +13,15 @@
 
 Functions will reload when changes are detected.
 
+### Debugging locally
+1. Start the function host: **func host start --debug vscode**
+2. Open the project folder in Visual Studio Code
+3. In VS Code, open the debug pane (on the left) then click **Attach to Azure Functions**
+
+* F9 = Add/Remove breakpoint
+* F10 = Step to next line
+* F11 = Step inside line
+* F5 = continue until next breakpoint
+
 ### Creating a new function
 Run **func new**. See other functions for function.json examples
