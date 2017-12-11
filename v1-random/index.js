@@ -94,7 +94,7 @@ module.exports = function (context, req)
         headers: { 
             "Content-Type": "application/json; charset=utf-8"
         },
-        body: { lennies: lennies, limit: limit }
+        body: lennies
     };
 
     context.done();
