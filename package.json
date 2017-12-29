@@ -1,24 +1,21 @@
 {
   "name": "restful-lenny",
-  "version": "4.2.0",
+  "version": "5.2.0",
   "description": "Provides some much needed dongage to your day to day activities",
   "main": "app.js",
   "dependencies": {
     "applicationinsights": "^1.0.0",
-    "optional": "^0.1.4",
-    "random-seed": "^0.3.0",
-    "restify": "^4.1.1"
+    "random-seed": "^0.3.0"
   },
   "engines": {
     "node": ">=8.2.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "start": "node app.js"
+    "start": "func host start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/casper-oakley/RESTful-lenny.git"
+    "url": "git+https://github.com/Casper-Oakley/RESTful-lenny.git"
   },
   "keywords": [
     "lenny",
@@ -36,10 +33,10 @@
     "asaservice",
     "asadong"
   ],
-  "author": "ur mum",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/casper-oakley/RESTful-lenny/issues"
+    "url": "https://github.com/Casper-Oakley/RESTful-lenny/issues"
   },
-  "homepage": "https://github.com/casper-oakley/RESTful-lenny#readme"
+  "homepage": "https://github.com/Casper-Oakley/RESTful-lenny#readme"
 }
