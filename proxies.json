@@ -7,7 +7,7 @@
             },
             "responseOverrides": {
                 "response.statusCode": "303",
-                "response.headers.Location": "https://github.com/Casper-Oakley/RESTful-lenny"
+                "response.headers.Location": "https://github.com/LennyToday/RESTful-lenny"
             }
         },
         "Favicon": {
