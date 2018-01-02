@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Casper-Oakley/RESTful-lenny.git"
+    "url": "git+https://github.com/LennyToday/RESTful-lenny.git"
   },
   "keywords": [
     "lenny",
@@ -36,7 +36,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Casper-Oakley/RESTful-lenny/issues"
+    "url": "https://github.com/LennyToday/RESTful-lenny/issues"
   },
-  "homepage": "https://github.com/Casper-Oakley/RESTful-lenny#readme"
+  "homepage": "https://github.com/LennyToday/RESTful-lenny#readme"
 }
