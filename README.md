@@ -22,10 +22,8 @@ To run the API, see SETUP.md.
 
 ## Original **_Lenny_** 
 
-http://lenny.today/api/v1/lenny
-
-#### Example Request
-`GET http://lenny.today/api/v1/lenny`<br>
+`GET http://api.lenny.today/v1/lenny`<br>
+(_[Try it](http://api.lenny.today/v1/lenny)_)
 
 **Response**
 
@@ -47,13 +45,9 @@ ___
 
 ## Random **_Lenniez_**
 
-#### Request
-**http://lenny.today/api/v1/random**
-
-You can request up to 500 **different** **_Lenniez_** per request using the **limit** query parameter.<br>
-
-#### Example Request
-`GET http://lenny.today/api/v1/random?limit=5`<br>
+`GET http://api.lenny.today/v1/random?limit=5`<br>
+(_[Try it](http://api.lenny.today/v1/random?limit=5)_)<br>
+_Maximum limit of 500 **Lenniez** per request_
 
 **Response**
 
@@ -106,10 +100,9 @@ ___
 
 ## Customise **_Lenny_**
 
-### Example Request
-Generate 5 different **_Lenniez_** with ᨓ for the mouth and * for the eyes.
-
-`GET http://lenny.today/api/v1/random?mouth=%E1%A8%93&eyes=*&limit=5`
+`GET http://api.lenny.today/v1/random?mouth=%E1%A8%93&eyes=*&limit=5`<br>
+(_[Try it](http://api.lenny.today/v1/random?mouth=%E1%A8%93&eyes=*&limit=5)_)<br>
+_This will generate 5 different **Lenniez** with ᨓ for the mouth and * for the eyes._
 
 **Response**
 
