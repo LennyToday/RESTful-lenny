@@ -16,7 +16,7 @@
             },
             "responseOverrides": {
                 "response.statusCode": "303",
-                "response.headers.Location": "https://raw.githubusercontent.com/Casper-Oakley/RESTful-lenny/master/content/favicon.ico"
+                "response.headers.Location": "http://app.lenny.today/favicon.ico"
             }
         },
         "Robots": {
@@ -25,7 +25,7 @@
             },
             "responseOverrides": {
                 "response.statusCode": "303",
-                "response.headers.Location": "https://raw.githubusercontent.com/Casper-Oakley/RESTful-lenny/master/content/robots.txt"
+                "response.headers.Location": "http://app.lenny.today/robots.txt"
             }
         }
     }
