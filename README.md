@@ -58,23 +58,23 @@ Content-Type: application/json
 ```json
 [
   {
-    "seed": 821691682,
+    "seed": 1,
     "face": "ᕮ・□・ᕭ"
   },
   {
-    "seed": 1128195852,
+    "seed": 1,
     "face": "ᕙ(  ͌ ε   ͌)ᕗ"
   },
   {
-    "seed": 3640482282,
+    "seed": 1,
     "face": "(ง⪦ᨎ⪧)ง"
   },
   {
-    "seed": 1997991881,
+    "seed": 1,
     "face": "ᑫxロxᑷ"
   },
   {
-    "seed": 3152860005,
+    "seed": 1,
     "face": "(づ■⍊■)づ"
   }
 ]
@@ -113,23 +113,23 @@ Content-Type: application/json
 ```json
 [
   {
-    "seed": 1471673626,
+    "seed": 1,
     "face": "ヽ(*ᨓ*)ﾉ"
   },
   {
-    "seed": 411656373,
+    "seed": 1,
     "face": "ᕮ*ᨓ*ᕭ"
   },
   {
-    "seed": 3789943703,
+    "seed": 1,
     "face": "ᕙ(*ᨓ*)ᕗ"
   },
   {
-    "seed": 1478520394,
+    "seed": 1,
     "face": "ლ(*ᨓ*ლ)"
   },
   {
-    "seed": 4262060905,
+    "seed": 1,
     "face": "|*ᨓ*|"
   }
 ]

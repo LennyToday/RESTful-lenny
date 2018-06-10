@@ -68,7 +68,7 @@ module.exports = function (context, req)
         lennyface = lennyFactory.create(req.query, lennyface);
 
         var resp = {
-            seed: seed,
+            seed: 1,
             face: lennyface.leftear + lennyface.lefteye + lennyface.mouth + lennyface.righteye + lennyface.rightear
         };
 
