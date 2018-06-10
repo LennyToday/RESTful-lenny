@@ -1,5 +1,9 @@
 module.exports = {
     success: function(body) {
+        if(body === null || typeof(body) === 'undefined'){
+            body = {};
+        }
+
         return {
             headers: { 
                 "Content-Type": "application/json; charset=utf-8"
