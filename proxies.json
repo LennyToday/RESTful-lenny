@@ -27,6 +27,12 @@
                 "response.statusCode": "303",
                 "response.headers.Location": "http://app.lenny.today/robots.txt"
             }
+        },
+        "LetsEncrypt": {
+            "matchCondition": {
+                "route": "/.well-known/acme-challenge/{rest}"
+            },
+            "backendUri": "https://%WEBSITE_HOSTNAME%/api/letsencrypt/{rest}"
         }
     }
 }
