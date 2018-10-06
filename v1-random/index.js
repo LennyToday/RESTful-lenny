@@ -6,7 +6,7 @@ var gen           = require('random-seed'),
 
 function getRandom(arr, seed) {
     var rand = gen.create(seed);
-    return arr[Math.floor(rand.random() * arr.length)];
+    return arr[Math.floor(rand.random() * (arr.length - 1))];
 }
 
 module.exports = function (context, req)
